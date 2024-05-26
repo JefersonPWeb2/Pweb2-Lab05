@@ -1,10 +1,9 @@
-from colors import color
-from colors import inverter
+from colors import *
 
 class Picture:
     def __init__(self, img):
         self.img = img
-
+        
     def __eq__(self, other):
         return self.img == other.img
 
@@ -23,7 +22,6 @@ class Picture:
         return Picture(horizontal)
 
     def negative(self):
-
         negative = []
         for row in self.img:
             negative_row = [self._invColor(pixel) for pixel in row]
@@ -46,7 +44,11 @@ class Picture:
         return Picture(new_img)
 
     def insert(self, p):
-        return Picture(None)
+        insert_img = []
+        for row_self, row_p in zip(self.img, p.img):
+            insert_row = ''.join([c_self if c_self != ' ' else c_p for c_self, c_p in zip(row_self, row_p)])
+            insert_img.append(insert_row)
+        return Picture(insert_img)
 
     def horizontalRepeat(self, n):
         repeated_img = [row * n for row in self.img]
@@ -57,9 +59,3 @@ class Picture:
         for _ in range(n):
             repeated_img.extend(self.img)
         return Picture(repeated_img)
-
-    def insert(self, p):
-        insert_img = []
-        for row_self, row_p in zip(self.img, p.img):
-            insert_row = ''.join([c_self if c_self != ' ' else c_p for c_self, c_p in zip(row_self,row_p)])
-        return Picture(insert_img)
