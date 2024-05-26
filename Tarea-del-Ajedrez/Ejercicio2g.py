@@ -18,4 +18,3 @@ b4 = b4.insert(tablero1.horizontalMirror())
 b5 = b3.under(tablero2)
 b5 = b5.under(b4.horizontalMirror())
 draw(b5)
-         
