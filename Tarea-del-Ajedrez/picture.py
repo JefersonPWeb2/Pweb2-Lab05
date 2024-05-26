@@ -61,4 +61,3 @@ class Picture:
         for row_self, row_p in zip(self.img, p.img):
             insert_row = ''.join([c_self if c_self != ' ' else c_p for c_self, c_p in zip(row_self,row_p)])
         return Picture(insert_img)
-
