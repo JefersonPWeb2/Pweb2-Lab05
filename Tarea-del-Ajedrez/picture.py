@@ -1,4 +1,6 @@
-from colors import *
+from colors import color
+from colors import inverter
+
 class Picture:
     def __init__(self, img):
         self.img = img
